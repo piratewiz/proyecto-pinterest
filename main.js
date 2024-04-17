@@ -4,7 +4,7 @@ const endPoint = 'https://api.unsplash.com/search/photos'
 async function getImages(query) {
   const params = new URLSearchParams({
     query: query,
-    per_page: 15,
+    per_page: 12,
     client_id: accessKey
   })
 
@@ -25,33 +25,21 @@ async function getImages(query) {
 
         divIMG.className = 'divIMG'
         image.className = 'everyIMG'
-        image.src = imagesList[i].urls.thumb
+        image.src = imagesList[i].urls.regular
 
         divIMG.appendChild(image)
         app.appendChild(divIMG)
       }
-      if (query === '') {
-        app.classList.remove('app') // Mostrar el contenido de #app si query está vacío
-      } else {
-        app.classList.add('app') // Ocultar el contenido de #app si query no está vacío
-      }
     }
 
     createImagesApi(imagesList)
-
-    contentApp()
   } catch (error) {
     console.error('Error fetching images:', error)
   }
 }
 
-let contentAppCalled = false
-
 document.addEventListener('DOMContentLoaded', () => {
-  if (!contentAppCalled) {
-    getImages('')
-    contentAppCalled = true
-  }
+  contentApp()
 })
 
 const contentApp = () => {
@@ -68,7 +56,8 @@ const contentApp = () => {
 
   inputBar.innerHTML = ''
   inputBar.className = 'input-search'
-  inputBar.placeholder = 'What do you want to find?'
+  inputBar.type = 'text'
+  inputBar.placeholder = 'Type any Key and press "Enter"'
   inputBar.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       getImages(this.value)
@@ -103,8 +92,4 @@ const contentApp = () => {
     getImages('')
   })
   divBtnContainer.appendChild(resetButton)
-
-  app.appendChild(divElement)
 }
-
-contentApp()
