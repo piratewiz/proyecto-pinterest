@@ -82,7 +82,7 @@ body {
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.137);
   border-radius: 10px;
-  height: auto;
+  min-height: 71.5vh;
 }
 
 .div-element {
@@ -97,29 +97,86 @@ body {
 }
 
 .input-search {
-  width: 220px;
-  height: 35px;
-  padding: 12px;
-  text-align: center;
-  background-color: rgba(128, 128, 128, 0.534);
-  border-radius: 20px;
-  border: none;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #323232;
+  background-color: #fff;
+  box-shadow: 4px 4px #323232;
+  font-size: 15px;
+  font-weight: 600;
+  color: #929bd3;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.input-search::placeholder {
+  color: #929bd3;
+  opacity: 0.8;
+}
+
+.input-search:focus {
+  border: 2px solid #aec8e4;
 }
 
 .button-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
-.button-container > button {
-  width: 100px;
-  height: 30px;
-  padding: 4px 16px;
+button {
+  align-items: center;
+  appearance: none;
+  background-color: #eef2ff;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: #9ca3cc;
+  box-shadow: rgba(83, 109, 254, 0.2) 0 2px 4px,
+    rgba(83, 109, 254, 0.15) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #929bd3;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  height: 56px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 20px;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(83, 109, 254, 0.4) 0 2px 4px,
+    rgba(83, 109, 254, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+}
+
+button:hover {
+  box-shadow: rgba(83, 109, 254, 0.3) 0 4px 8px,
+    rgba(83, 109, 254, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+button:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
 }
 
 .everyIMG {
   width: 350px;
-  height: auto;
+  height: 500px;
   border-radius: 6px;
 }
 

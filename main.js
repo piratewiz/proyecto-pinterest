@@ -4,7 +4,7 @@ const endPoint = 'https://api.unsplash.com/search/photos'
 async function getImages(query) {
   const params = new URLSearchParams({
     query: query,
-    per_page: 12,
+    per_page: 20,
     client_id: accessKey
   })
 
@@ -23,12 +23,14 @@ async function getImages(query) {
         const image = document.createElement('img')
         const divIMG = document.createElement('div')
 
-        divIMG.className = 'divIMG'
-        image.className = 'everyIMG'
-        image.src = imagesList[i].urls.regular
+        if (imagesList[i].height > imagesList[i].width) {
+          divIMG.className = 'divIMG'
+          image.className = 'everyIMG'
+          image.src = imagesList[i].urls.regular
 
-        divIMG.appendChild(image)
-        app.appendChild(divIMG)
+          divIMG.appendChild(image)
+          app.appendChild(divIMG)
+        }
       }
     }
 
