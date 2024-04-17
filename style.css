@@ -76,6 +76,7 @@ body {
 
 #app {
   margin-top: 20px;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -97,10 +98,11 @@ body {
 }
 
 .input-search {
-  width: 200px;
+  width: 280px;
   height: 40px;
   border-radius: 5px;
   border: 2px solid #323232;
+  text-align: center;
   background-color: #fff;
   box-shadow: 4px 4px #323232;
   font-size: 15px;
@@ -204,6 +206,11 @@ footer > .zone2 {
   margin-top: 40px;
   border: 1px solid rgba(255, 255, 255, 0.171);
   border-radius: 10px;
+}
+
+.zone2 > div > img:hover {
+  transform: scale(1.1);
+  transition: 0.25s;
 }
 
 .footer-logo {

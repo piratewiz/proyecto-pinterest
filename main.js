@@ -32,6 +32,8 @@ async function getImages(query) {
           app.appendChild(divIMG)
         }
       }
+      document.getElementById('#resetButton').style.display = 'block'
+      document.querySelector('.input-search').style.display = 'block'
     }
 
     createImagesApi(imagesList)
@@ -90,6 +92,8 @@ const contentApp = () => {
 
   const resetButton = document.createElement('button')
   resetButton.textContent = 'Reset'
+  resetButton.id = 'resetButton'
+  resetButton.style.display = 'none'
   resetButton.addEventListener('click', function () {
     getImages('')
   })
