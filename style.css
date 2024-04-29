@@ -78,6 +78,7 @@ body {
   margin-top: 20px;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -200,7 +201,7 @@ footer > .zone1 > .link-footer {
 
 footer > .zone2 {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px;
   margin-top: 40px;
