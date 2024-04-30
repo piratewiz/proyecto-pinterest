@@ -41,6 +41,7 @@ async function getImages(query) {
       showErrorMessage()
     } else {
       hideTitleAndParagraph()
+      showRecommendedButtons()
     }
   } catch (error) {
     console.error('Error fetching images:', error)
@@ -73,6 +74,7 @@ const contentApp = () => {
   inputBar.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       getImages(this.value)
+      inputBar.value = ''
     }
   })
 
@@ -103,6 +105,7 @@ function createRecommendationButtons() {
     button.textContent = recommendation
     button.addEventListener('click', function () {
       getImages(recommendation)
+      hideErrorMessage()
     })
     divBtnContainer.appendChild(button)
   })
@@ -116,8 +119,6 @@ function createRecommendationButtons() {
     hideErrorMessage()
   })
   divBtnContainer.appendChild(resetButton)
-
-  showRecommendedButtons()
 }
 
 function showRecommendedButtons() {
