@@ -4,7 +4,7 @@ const endPoint = 'https://api.unsplash.com/search/photos'
 async function getImages(query) {
   const params = new URLSearchParams({
     query: query,
-    per_page: 20,
+    per_page: 25,
     client_id: accessKey
   })
 
@@ -80,6 +80,7 @@ const contentApp = () => {
 
   titlePage.textContent = 'Explore the Visual Universe'
 
+  paragraph.className = 'paragraph'
   paragraph.textContent =
     'Welcome to ImageHub, your go-to source for high-quality stock photos, illustrations, and vectors.'
 
@@ -97,7 +98,7 @@ const contentApp = () => {
 function createRecommendationButtons() {
   const divBtnContainer = document.querySelector('.button-container')
 
-  const recommendationButtons = ['crocodile', 'computers', 'ocean']
+  const recommendationButtons = ['crocodile', 'greece', 'ocean']
   divBtnContainer.innerHTML = ''
   recommendationButtons.forEach((recommendation) => {
     const button = document.createElement('button')
@@ -153,4 +154,31 @@ function showErrorMessage() {
 function hideErrorMessage() {
   const errorMessage = document.querySelector('.error-message')
   errorMessage.style.display = 'none'
+}
+
+var toggle = document.getElementById('container')
+var body = document.querySelector('body')
+var links = document.querySelectorAll('a')
+var spans = document.querySelectorAll('span')
+
+toggle.onclick = function () {
+  this.classList.toggle('bi-moon')
+  if (this.classList.toggle('bi-brightness-high-fill')) {
+    body.style.background = '#30253d'
+    body.style.color = 'white'
+    body.style.transition = '2s'
+    links.forEach(function (link) {
+      link.style.color = 'whitesmoke'
+    })
+  } else {
+    body.style.background = 'white'
+    body.style.color = 'black'
+    body.style.transition = '2s'
+    links.forEach(function (link) {
+      link.style.color = '#30253d'
+    })
+    spans.forEach(function (span) {
+      span.style.color = '#929bd3'
+    })
+  }
 }
