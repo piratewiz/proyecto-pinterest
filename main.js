@@ -1,6 +1,12 @@
 const accessKey = 'CXwB9V2ReMLR5e-eAat1BCdx2KnBUyUl5LtaADxZcE8'
 const endPoint = 'https://api.unsplash.com/search/photos'
 
+/* Con esta función llamamos a la API, y dentro de la misma
+creamos cada div dentro del cual habrá insertado la imagen.
+Para ofrecer unas imágenes un poco más proporcionadas le doy la orden
+de que sólo se muestren aquellas imágenes que tengan una altura mayor
+que el ancho. */
+
 async function getImages(query) {
   const params = new URLSearchParams({
     query: query,
@@ -54,6 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
   createRecommendationButtons()
 })
 
+/* En la siguiente función organizo el contenido principal, donde se encuentra
+el buscador de imágenes, una pequeña carta de presentación, y la sección donde
+se van a mostrar las imágenes. */
+
 const contentApp = () => {
   const app = document.querySelector('#app')
   const divBtnContainer = document.createElement('div')
@@ -95,6 +105,10 @@ const contentApp = () => {
   app.appendChild(imagesContainer)
 }
 
+/* Con createRecommendationButtons he establecido que ya sea que el usuario
+haya encontrado las imágenes solicitadas o no, se carguen otras opciones de búsqueda
+que le puedan interesar */
+
 function createRecommendationButtons() {
   const divBtnContainer = document.querySelector('.button-container')
 
@@ -127,6 +141,8 @@ function showRecommendedButtons() {
   divBtnContainer.style.display = ''
 }
 
+/* hideTitleAndParagraph escondemos el contenido principal de la página
+sustituyéndolo por las imágenes cargadas. */
 function hideTitleAndParagraph() {
   const titlePage = document.querySelector('h1')
   const paragraph = document.querySelector('p')
@@ -134,6 +150,7 @@ function hideTitleAndParagraph() {
   paragraph.style.display = 'none'
 }
 
+/* Con showTitleAndParagraph volvemos a mostrar el contenido inicial del título, realizado una vez se presione el botón RESET. */
 function showTitleAndParagraph() {
   const titlePage = document.querySelector('h1')
   const paragraph = document.querySelector('p')
@@ -141,6 +158,8 @@ function showTitleAndParagraph() {
   paragraph.style.display = 'block'
 }
 
+/* Si el usuario no encuentra la imagen deseada o simplemente no existe en
+nuestra API, creamos un mensaje de error enlazado con catch ERROR. */
 function showErrorMessage() {
   const app = document.querySelector('#app')
   const message = document.createElement('h1')
@@ -151,10 +170,17 @@ function showErrorMessage() {
   app.appendChild(message)
 }
 
+/* hideErrorMessage con ello oculta el mensaje de error una vez se carguen 
+correctamente nuevas imágenes que existan o si se resetean los filtros. */
 function hideErrorMessage() {
   const errorMessage = document.querySelector('.error-message')
   errorMessage.style.display = 'none'
 }
+
+/* Abajo he creado un pequeño toggle que al ser pulsado por el usuario
+pueda cambiar los modos CLARO/OSCURO. Sería interesante crear algo
+semejante en un proyecto para que dependiendo de la hora del día
+haya una función que pueda cambiarse automáticamente */
 
 var toggle = document.getElementById('container')
 var body = document.querySelector('body')
