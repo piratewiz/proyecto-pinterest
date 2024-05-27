@@ -72,6 +72,11 @@ header {
   }
 }
 
+#moon,
+#sun {
+  cursor: pointer;
+}
+
 #navigator {
   display: flex;
   gap: 2rem;
@@ -381,6 +386,7 @@ footer {
 footer > .zone1 {
   width: 80%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
   border: 1px solid #929bd35b;
@@ -488,8 +494,11 @@ footer > .zone2 {
     width: 70%;
   }
 
-  .images-container {
+  .images-container .divIMG {
     flex-direction: column;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
   }
 
   .bgContainer {
@@ -523,19 +532,27 @@ footer > .zone2 {
     flex-direction: column;
     width: 370px;
     text-align: center;
+    margin-top: 20px;
   }
 
   .button-container {
-    width: 400px;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .everyIMG {
-    width: 250px;
+  .divIMG {
+    width: auto;
+    height: auto;
+  }
+
+  .divIMG .everyIMG {
+    width: 280px;
     height: auto;
   }
 
   button {
-    width: 190px;
+    width: 120px;
     font-size: medium;
   }
 
@@ -564,6 +581,38 @@ footer > .zone2 {
 @media (min-width: 830px) and (max-width: 1200px) {
   .info {
     margin-left: 200px;
+  }
+
+  #section-presentation {
+    flex-wrap: wrap;
+  }
+
+  .presentation {
+    width: 100%;
+    margin-top: -100px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 820px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  .div-element {
+    width: 760px;
+  }
+
+  .third {
+    display: none;
+  }
+
+  #section-presentation {
+    flex-wrap: wrap;
+    gap: 6rem;
+  }
+
+  .info {
+    margin-left: 100px;
   }
 }
 
@@ -594,8 +643,12 @@ footer > .zone2 {
     width: 90%;
   }
 
+  .third {
+    display: none;
+  }
+
   .info {
-    margin-left: 100px;
+    margin-left: 300px;
   }
 
   .div-element {

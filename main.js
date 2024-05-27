@@ -1,5 +1,9 @@
 const accessKey = 'CXwB9V2ReMLR5e-eAat1BCdx2KnBUyUl5LtaADxZcE8'
 const endPoint = 'https://api.unsplash.com/search/photos'
+import { createHeader } from './components/Header/header.js'
+import { createFooter } from './components/Footer/footer.js'
+import { createSection } from './components/Section/section.js'
+import { toggleClickFunction } from './components/Toggle/toggle.js'
 
 /* Con esta función llamamos a la API, y dentro de la misma
 creamos cada div dentro del cual habrá insertado la imagen.
@@ -56,14 +60,17 @@ async function getImages(query) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  toggleClickFunction()
+  createHeader()
   contentApp()
+  createSection()
+  createFooter()
   createRecommendationButtons()
 })
 
 /* En la siguiente función organizo el contenido principal, donde se encuentra
 el buscador de imágenes, una pequeña carta de presentación, y la sección donde
 se van a mostrar las imágenes. */
-
 const contentApp = () => {
   const app = document.querySelector('#app')
   const divBtnContainer = document.createElement('div')
@@ -108,7 +115,6 @@ const contentApp = () => {
 /* Con createRecommendationButtons he establecido que ya sea que el usuario
 haya encontrado las imágenes solicitadas o no, se carguen otras opciones de búsqueda
 que le puedan interesar */
-
 function createRecommendationButtons() {
   const divBtnContainer = document.querySelector('.button-container')
 
@@ -175,36 +181,4 @@ correctamente nuevas imágenes que existan o si se resetean los filtros. */
 function hideErrorMessage() {
   const errorMessage = document.querySelector('.error-message')
   errorMessage.style.display = 'none'
-}
-
-/* Abajo he creado un pequeño toggle que al ser pulsado por el usuario
-pueda cambiar los modos CLARO/OSCURO. Sería interesante crear algo
-semejante en un proyecto para que dependiendo de la hora del día
-haya una función que pueda cambiarse automáticamente */
-
-var toggle = document.getElementById('container')
-var body = document.querySelector('body')
-var links = document.querySelectorAll('a')
-var spans = document.querySelectorAll('span')
-
-toggle.onclick = function () {
-  this.classList.toggle('bi-moon')
-  if (this.classList.toggle('bi-brightness-high-fill')) {
-    body.style.background = '#30253d'
-    body.style.color = 'white'
-    body.style.transition = '2s'
-    links.forEach(function (link) {
-      link.style.color = 'whitesmoke'
-    })
-  } else {
-    body.style.background = 'white'
-    body.style.color = 'black'
-    body.style.transition = '2s'
-    links.forEach(function (link) {
-      link.style.color = '#30253d'
-    })
-    spans.forEach(function (span) {
-      span.style.color = '#929bd3'
-    })
-  }
 }
